@@ -1,0 +1,307 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+
+.main-wrapper {
+  height: 100%;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  background: transparent;
+}
+
+.sidebar {
+  border-right: .7px solid #ddd;
+  width: 350px;
+  height: 100%;
+  padding: 30px 40px;
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    img {
+      width: 35px;
+    }
+
+    a {
+      font-size: 22px;
+
+      span {
+        font-weight: 700;
+      }
+
+      &:hover {
+        color: #0099e5;
+      }
+    }
+
+
+  }
+
+  .sidebar-content {
+    padding: 10px;
+
+    p {
+      color: #ddd;
+      margin: 15px 0;
+
+    }
+
+    .links>a {
+      display: flex;
+      font-weight: 700;
+      margin: 10px 0;
+      cursor: pointer;
+
+      &:hover {
+        color: #0099e5;
+      }
+    }
+
+    .sidebar-footer {
+      border-top: .7px solid #ddd;
+      border-bottom: .7px solid #ddd;
+      padding: 20px 0;
+      margin: 35px 0;
+
+      p {
+        color: black;
+
+        &:hover {
+          color: #0099e5;
+        }
+      }
+    }
+
+  }
+}
+
+
+.about-modal {
+  max-width: 720px;
+  background-color: #fff;
+  width: 100%;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, .1);
+  border-radius: 15px;
+  padding: 50px 30px;
+  position: relative;
+
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #f8f8f8;
+    padding: 5px;
+    color: gray;
+    cursor: pointer;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  p {
+    margin: 15px 0;
+  }
+
+
+}
+
+
+.about-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255, .7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+
+  header {
+    height: 60px;
+    border-bottom: .7px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+
+
+    .go-back {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      svg {
+        font-size: 40px;
+      }
+
+      
+    }
+
+    .search-field {
+      /* flex: 1; */
+      display: flex;
+      position: relative;
+
+      .search-icon {
+        position: absolute;
+        top: 20px;
+        left: 25px;
+        width: 20px;
+        height: 20px;
+        color: gray;
+      }
+
+      input {
+        padding-left: 50px;
+      }
+
+      input::placeholder {
+        color: #ccc;
+      }
+    }
+
+    .header-actions-wrapper {
+      display: flex;
+      align-items: center;
+      padding-right: 15px;
+      font-size: 18px;
+
+      &>* {
+        margin: 0 15px;
+      }
+
+      .actions {
+        display: flex;
+        gap: 8px;
+        margin-right: -5px;
+
+        select {
+          border: .7px solid #ddd;
+          padding: 2px 10px;
+          border-radius: 12px;
+          appearance: none;
+          text-align: center;
+          cursor: pointer;
+        }
+
+        button, a {
+          font-size: 25px;
+          color: #bbb;
+          padding-top: 8px;
+          cursor: pointer;
+
+          &:hover {
+            color: gray;
+          }
+        }
+
+      }
+
+      .all-brands {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        button {
+          font-size: 25px;
+          color: black;
+          padding-top: 8px;
+          cursor: pointer;
+  
+          &:hover {
+            color: gray;
+          }
+         }
+
+      }
+
+    }
+  }
+
+
+  .brands {
+    padding: 10px 15px;
+
+    .brand {
+      border: .7px solid #ccc;
+      padding: 0 20px 20px 10px;
+      margin: 10px 0;
+      cursor: pointer;
+
+      h5 {
+        font-size: 20px;
+        padding: 30px 0 10px 0;
+      }
+
+      .brand-colors {
+        display: flex;
+        flex-wrap: wrap;
+
+        span {
+          background-color: var(--bgColor);
+          padding: 10px 30px;
+          margin-top: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 16px;
+          font-weight: 500;
+          color: var(--textColor);
+          text-indent: -99999px;
+        }
+      }
+
+      &.selected {
+        border: 1px solid #0099e5;
+
+        &>.brand-colors {
+          span {
+            flex: 1;
+            text-indent: 0;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.no-one-brand {
+  font-style: italic;
+  color: #aaa;
+
+  b {
+    color: black;
+  }
+}
